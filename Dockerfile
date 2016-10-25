@@ -1,6 +1,6 @@
 # Pull base image
 FROM resin/rpi-raspbian:jessie
-MAINTAINER Andrew Cencini <andrew@vapor.io>
+MAINTAINER Amol Mundayoor <amol@smartthings.com>
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
@@ -22,5 +22,6 @@ RUN pip install wiringpi2
 WORKDIR /data
 VOLUME /data
 
+ADD ./wiring-test.py /data
 # Define default command
 CMD ["bash"]
