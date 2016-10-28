@@ -11,6 +11,8 @@ RUN apt-get update && apt-get install -y \
     python-dev \
     python-pip \
     python-virtualenv \
+    python-rpi.gpio \
+    python3-rpi.gpio \
     --no-install-recommends && \
     rm -rf /var/lib/apt/lists/*
 RUN pip install pyserial
@@ -22,6 +24,8 @@ RUN pip install wiringpi2
 WORKDIR /data
 VOLUME /data
 
-ADD ./wiring-test.py /data
+ADD ./wiringpi-test.py /data
+ADD ./rpigpio-test.py /data
+
 # Define default command
 CMD ["bash"]
